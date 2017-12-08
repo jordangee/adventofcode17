@@ -11,20 +11,22 @@ var offsetsString = """
 """
 
 func countJumps(_ offsetsString: String) -> Int {
-    var offsetsArray = offsetsString.split(separator: "\n")
+    let offsetsArray = offsetsString.split(separator: "\n")
 
     var offsets = offsetsArray.flatMap { Int(String($0)) }
 
-    var start = offsets.startIndex
     var currentPointIndex = 0
-    var testIndex = 0
     var currentPointNumber = 0
     var jumps = 0
 
-    while testIndex < offsets.count {
-        currentPointNumber = offsets[testIndex]
-        offsets[testIndex] += 1
-        testIndex += currentPointNumber
+    while currentPointIndex < offsets.count {
+        currentPointNumber = offsets[currentPointIndex]
+        if currentPointNumber < 3 {
+            offsets[currentPointIndex] += 1
+        } else {
+            offsets[currentPointIndex] -= 1
+        }
+        currentPointIndex += currentPointNumber
 
         print(offsets)
         jumps += 1
@@ -33,4 +35,4 @@ func countJumps(_ offsetsString: String) -> Int {
     return jumps
 }
 
-countJumps(offsetsString) == 5
+countJumps(offsetsString) == 10
