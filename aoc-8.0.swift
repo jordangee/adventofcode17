@@ -17,13 +17,13 @@ extension Instruction: CustomStringConvertible {
     }
 }
 
-
-let sampleInput = """
-b inc 5 if a > 1
-a inc 1 if b < 5
-c dec -10 if a >= 1
-c inc -20 if c == 10
-"""
+//
+//let sampleInput = """
+//b inc 5 if a > 1
+//a inc 1 if b < 5
+//c dec -10 if a >= 1
+//c inc -20 if c == 10
+//"""
 
 func findLargestRegister(_ instructionsString: String) -> String {
     var largestRegister = "default"
@@ -53,6 +53,14 @@ func findLargestRegister(_ instructionsString: String) -> String {
             largestRegister = key
         }
     }
+    
+    registerDict.sorted(by: <).forEach {print($0)}
+    var registerArr = [String]()
+    instrArray.forEach { registerArr.append($0.registerToChange) }
+    let set: Set = Set(registerArr)
+    print(set.sorted())
+    
+    print("Dict count: \(registerDict.count), Set count: \(set.count)" )
     
     return largestRegister
 }
@@ -100,7 +108,7 @@ func checkCondition(_ registerValue: Int, _ condition: String, _ checkValue: Int
     }
 }
 
-print(findLargestRegister(sampleInput))
+//print(findLargestRegister(sampleInput))
 
 let realInput = """
 y inc 497 if n <= 3

@@ -25,6 +25,31 @@ c dec -10 if a >= 1
 c inc -20 if c == 10
 """
 
+let sampleInput2 = """
+y inc 497 if n <= 3
+ig inc -54 if es < 9
+j dec 278 if low < 10
+nm inc -531 if tr == 0
+tq inc 537 if tq < 9
+txm dec 835 if s != -8
+xho dec -204 if vv < 6
+ipq dec 59 if txm != -835
+vv dec -259 if xho <= 210
+tq inc 364 if qen != -7
+xho inc -198 if xho < 205
+afo dec -182 if j == -278
+qen inc 774 if ntk == 4
+cwp dec -414 if tr < 4
+vv dec -696 if ntk == 0
+low dec 851 if n == 0
+tq inc -132 if t > -10
+mux dec 626 if j >= -283
+wby dec 759 if vv >= 950
+qen inc 853 if j >= -283
+qen inc -571 if tr != 0
+ntk inc 213 if n == 0
+"""
+
 func findLargestRegister(_ instructionsString: String) -> String {
     var largestRegister = "default"
     let formattedInstructions = instructionsString.replacingOccurrences(of: " if", with: ":")
@@ -53,6 +78,15 @@ func findLargestRegister(_ instructionsString: String) -> String {
             largestRegister = key
         }
     }
+    
+    registerDict.sorted(by: <).forEach {print($0)}
+
+    var registerArr = [String]()
+    instrArray.forEach { registerArr.append($0.registerToChange) }
+    let set: Set = Set(registerArr)
+    
+    let sortedSet = set.sorted()
+    print(sortedSet)
     
     return largestRegister
 }
@@ -100,4 +134,5 @@ func checkCondition(_ registerValue: Int, _ condition: String, _ checkValue: Int
     }
 }
 
-findLargestRegister(sampleInput)
+//findLargestRegister(sampleInput)
+findLargestRegister(sampleInput2)
