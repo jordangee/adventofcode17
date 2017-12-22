@@ -29,4 +29,14 @@ class aoc_15_2_Tests: XCTestCase {
         XCTAssertEqual(testObject.next(), 1980017072)
         XCTAssertEqual(testObject.next(), 740335192)
     }
+    
+    func test_GeneratorB_only_returns_multiples_of_8() {
+        var testObject = Generator(seed: 8921, factor: 48271, divisor: 8)
+        
+        XCTAssertEqual(testObject.next(), 1233683848)
+        XCTAssertEqual(testObject.next(), 862516352)
+        XCTAssertEqual(testObject.next(), 1159784568)
+        XCTAssertEqual(testObject.next(), 1616057672)
+        XCTAssertEqual(testObject.next(), 412269392)
+    }
 }
