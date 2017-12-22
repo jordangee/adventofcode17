@@ -116,6 +116,6 @@ class aoc_15Tests: XCTestCase {
             _ = testObject.valuesMatch(generatorA.next(), generatorB.next())
         }
         
-        XCTAssertEqual(testObject.numMatches, 0)
+        XCTAssertEqual(testObject.numMatches, 609)
     }
 }
