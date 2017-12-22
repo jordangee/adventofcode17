@@ -21,10 +21,7 @@ struct Generator {
     
     mutating func next() -> Int {
         currentValue = (currentValue * factor) % 2147483647
-        if currentValue % divisor == 0 {
-            return currentValue
-        }
-        
-        return self.next()
+
+        return currentValue % divisor == 0 ? currentValue : self.next()
     }
 }
