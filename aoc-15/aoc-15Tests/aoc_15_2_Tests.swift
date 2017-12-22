@@ -39,4 +39,18 @@ class aoc_15_2_Tests: XCTestCase {
         XCTAssertEqual(testObject.next(), 1616057672)
         XCTAssertEqual(testObject.next(), 412269392)
     }
+    
+    func test_part2_example() {
+        var testObject = Judge()
+        var generatorA = Generator(seed: 65, factor: 16807, divisor: 4)
+        var generatorB = Generator(seed: 8921, factor: 48271, divisor: 8)
+        
+        XCTAssertEqual(testObject.numMatches, 0)
+        
+        for _ in 1...5000000 {
+            _ = testObject.valuesMatch(generatorA.next(), generatorB.next())
+        }
+        
+        XCTAssertEqual(testObject.numMatches, 309)
+    }
 }
