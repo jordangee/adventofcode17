@@ -9,7 +9,7 @@
 import XCTest
 @testable import aoc_15
 
-class aoc_15Tests: XCTestCase {
+class aoc_15_1_Tests: XCTestCase {
     func test_GeneratorA_generates_correct_values() {
         var testObject = Generator(seed: 65, factor: 16807)
         

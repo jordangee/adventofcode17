@@ -12,9 +12,10 @@
 		5AD8E48D1FED67CA0072D8B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD8E48B1FED67CA0072D8B1 /* Main.storyboard */; };
 		5AD8E48F1FED67CA0072D8B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AD8E48E1FED67CA0072D8B1 /* Assets.xcassets */; };
 		5AD8E4921FED67CA0072D8B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD8E4901FED67CA0072D8B1 /* LaunchScreen.storyboard */; };
-		5AD8E4A01FED68070072D8B1 /* aoc_15Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD8E49F1FED68070072D8B1 /* aoc_15Tests.swift */; };
+		5AD8E4A01FED68070072D8B1 /* aoc_15_1_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD8E49F1FED68070072D8B1 /* aoc_15_1_Tests.swift */; };
 		5AD8E4A91FED69050072D8B1 /* Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD8E4A81FED69050072D8B1 /* Generator.swift */; };
 		5AD8E4AB1FED70090072D8B1 /* Judge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD8E4AA1FED70090072D8B1 /* Judge.swift */; };
+		5AD8E4AD1FED8A2F0072D8B1 /* aoc_15_2_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD8E4AC1FED8A2F0072D8B1 /* aoc_15_2_Tests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,10 +37,11 @@
 		5AD8E4911FED67CA0072D8B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5AD8E4931FED67CA0072D8B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5AD8E49D1FED68070072D8B1 /* aoc-15Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "aoc-15Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5AD8E49F1FED68070072D8B1 /* aoc_15Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aoc_15Tests.swift; sourceTree = "<group>"; };
+		5AD8E49F1FED68070072D8B1 /* aoc_15_1_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aoc_15_1_Tests.swift; sourceTree = "<group>"; };
 		5AD8E4A11FED68070072D8B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5AD8E4A81FED69050072D8B1 /* Generator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Generator.swift; sourceTree = "<group>"; };
 		5AD8E4AA1FED70090072D8B1 /* Judge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Judge.swift; sourceTree = "<group>"; };
+		5AD8E4AC1FED8A2F0072D8B1 /* aoc_15_2_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aoc_15_2_Tests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +97,8 @@
 		5AD8E49E1FED68070072D8B1 /* aoc-15Tests */ = {
 			isa = PBXGroup;
 			children = (
-				5AD8E49F1FED68070072D8B1 /* aoc_15Tests.swift */,
+				5AD8E49F1FED68070072D8B1 /* aoc_15_1_Tests.swift */,
+				5AD8E4AC1FED8A2F0072D8B1 /* aoc_15_2_Tests.swift */,
 				5AD8E4A11FED68070072D8B1 /* Info.plist */,
 			);
 			path = "aoc-15Tests";
@@ -224,7 +227,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5AD8E4A01FED68070072D8B1 /* aoc_15Tests.swift in Sources */,
+				5AD8E4AD1FED8A2F0072D8B1 /* aoc_15_2_Tests.swift in Sources */,
+				5AD8E4A01FED68070072D8B1 /* aoc_15_1_Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
