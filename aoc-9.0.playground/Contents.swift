@@ -4,19 +4,14 @@ let input1 = "{}"
 let input2 = "{{{}}}"
 let input3 = "{{},{}}"
 let input4 = "{{{},{},{{}}}}"
-let input5 = "{<{},{},{{}}>}"
-let input6 = "{<a>,<a>,<a>,<a>}"
-let input7 = "{{<a>},{<a>},{<a>},{<a>}}"
-let input8 = "{{<!>},{<!>},{<!>},{<a>}}"
+let input5 = "{<a>,<a>,<a>,<a>}"
+let input6 = "{{<ab>},{<ab>},{<ab>},{<ab>}}"
+let input7 = "{{<!!>},{<!!>},{<!!>},{<!!>}}"
+let input8 = "{{<a!>},{<a!>},{<a!>},{<ab>}}"
 
-func getGroupCount(_ input: String) -> Int {
-    let canceledCharPattern = "!."
-    let garbagePattern = "<[^>]*>"
-    return input
-        .removePattern(matching: canceledCharPattern)
-        .removePattern(matching: garbagePattern)
-        .filter { (char : Character) -> Bool in char == "{" }
-        .count
+func getTotalScore(_ input: String) -> Int {
+    let filteredInput = input.filterInput()
+    return filteredInput.score()
 }
 
 extension String {
@@ -26,13 +21,36 @@ extension String {
         regex.replaceMatches(in: result, range: NSMakeRange(0, result.length), withTemplate: "")
         return String(result)
     }
+    
+    func filterInput() -> String {
+        let canceledCharPattern = "!."
+        let garbagePattern = "<[^>]*>"
+        return self
+            .removePattern(matching: canceledCharPattern)
+            .removePattern(matching: garbagePattern)
+    }
+    
+    func score() -> Int {
+        var totalScore = 0
+        var nextScore = 1
+        for char in self {
+            if char == "{" {
+                totalScore += nextScore
+                nextScore += 1
+            }
+            if char == "}" {
+                nextScore -= 1
+            }
+        }
+        return totalScore
+    }
 }
 
-getGroupCount(input1) == 1
-getGroupCount(input2) == 3
-getGroupCount(input3) == 3
-getGroupCount(input4) == 6
-getGroupCount(input5) == 1
-getGroupCount(input6) == 1
-getGroupCount(input7) == 5
-getGroupCount(input8) == 2
+getTotalScore(input1) == 1
+getTotalScore(input2) == 6
+getTotalScore(input3) == 5
+getTotalScore(input4) == 16
+getTotalScore(input5) == 1
+getTotalScore(input6) == 9
+getTotalScore(input7) == 9
+getTotalScore(input8) == 3
