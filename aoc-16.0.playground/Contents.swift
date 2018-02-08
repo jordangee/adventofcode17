@@ -29,24 +29,24 @@ func exchange(_ instr: String) {
     guard let firstInt = Int(indexArr[0]), let secondInt = Int(indexArr[1]) else { return }
     let firstIndex = testPrograms.index(testPrograms.startIndex, offsetBy: firstInt)
     let secondIndex = testPrograms.index(testPrograms.startIndex, offsetBy: secondInt)
-    let firstChar = testPrograms[firstIndex]
-    let secondChar = testPrograms[secondIndex]
-    testPrograms = String(testPrograms.map {
-        if $0 == firstChar { return secondChar }
-        if $0 == secondChar { return firstChar }
-        return $0
-    })
+    testPrograms = testPrograms.swap(testPrograms[firstIndex], testPrograms[secondIndex])
 }
 
 func partner(_ instr: String) {
     let charArr = instr.split(separator: "/")
     let firstChar = charArr[0].first!
     let secondChar = charArr[1].first!
-    testPrograms = String(testPrograms.map {
-        if $0 == firstChar { return secondChar }
-        if $0 == secondChar { return firstChar }
-        return $0
-    })
+    testPrograms = testPrograms.swap(firstChar, secondChar)
+}
+
+extension String {
+    func swap(_ firstChar: Character, _ secondChar: Character) -> String {
+        return String(self.map {
+            if $0 == firstChar { return secondChar }
+            if $0 == secondChar { return firstChar }
+            return $0
+        })
+    }
 }
 
 executeDance(testDance) == "baedc"
