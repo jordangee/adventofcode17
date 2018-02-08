@@ -9,6 +9,7 @@ let input6 = "{{<ab>},{<ab>},{<ab>},{<ab>}}"
 let input7 = "{{<!!>},{<!!>},{<!!>},{<!!>}}"
 let input8 = "{{<a!>},{<a!>},{<a!>},{<ab>}}"
 
+
 func getTotalScore(_ input: String) -> Int {
     let filteredInput = input.filterInput()
     return filteredInput.score()
@@ -20,6 +21,15 @@ extension String {
         let result = NSMutableString(string: self)
         regex.replaceMatches(in: result, range: NSMakeRange(0, result.length), withTemplate: "")
         return String(result)
+    }
+    
+    func numberOfCharacters(matching pattern: String) -> Int {
+        guard let regex = try? NSRegularExpression(pattern: pattern) else { return -1 }
+        var count = 0
+        for match in regex.matches(in: self, range: NSMakeRange(0, self.count)) {
+            count += match.range.upperBound - match.range.lowerBound - 2
+        }
+        return count
     }
     
     func filterInput() -> String {
@@ -46,6 +56,15 @@ extension String {
     }
 }
 
+"<>".removePattern(matching: "!.").numberOfCharacters(matching: "<[^>]*>") == 0
+"<random characters>".removePattern(matching: "!.").numberOfCharacters(matching: "<[^>]*>") == 17
+"<<<<>".removePattern(matching: "!.").numberOfCharacters(matching: "<[^>]*>") == 3
+"<{!>}>".removePattern(matching: "!.").numberOfCharacters(matching: "<[^>]*>") == 2
+"<!!>".removePattern(matching: "!.").numberOfCharacters(matching: "<[^>]*>") == 0
+"<!!!>>".removePattern(matching: "!.").numberOfCharacters(matching: "<[^>]*>") == 0
+"<{o\"i!a,<{i<a>".removePattern(matching: "!.").numberOfCharacters(matching: "<[^>]*>") == 10
+"<{o\"i!a,<{i<a>..weoigjo<11>".removePattern(matching: "!.").numberOfCharacters(matching: "<[^>]*>") == 12
+
 getTotalScore(input1) == 1
 getTotalScore(input2) == 6
 getTotalScore(input3) == 5
@@ -61,5 +80,6 @@ let realInput = """
 """
 
 getTotalScore(realInput)
+ realInput.removePattern(matching: "!.").numberOfCharacters(matching: "<[^>]*>")
  //*/
 
